@@ -55,6 +55,8 @@ for line in f:
 
 f.close()
 
+#Iterate through tickets seeing if any do not meet criteria on all limits.
+#If any criteria is met, then break out of loop and start next ticket
 for value in nearby_tickets:
     valid = True
     for key in limits:

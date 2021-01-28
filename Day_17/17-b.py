@@ -9,9 +9,6 @@ for x in range(-15, 20):
             for w in range(-15, 20):
                 spots[(x,y,z,w)] = '.'
 
-
-
-
 f = open("C:\\Users\craig\OneDrive\Documents\AoC\Day_17\input.txt", "r")
 
 w = x = y = z = 0

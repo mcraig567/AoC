@@ -80,15 +80,22 @@ for food in allergen_option_lists:
     new_possible[food] = new_list
 
 def reduce_items(foods):
+    """
+    If only one option for an allergen, it cannot be in the others.
+    This function removes that option from all other ingredients
+    """
     for food in foods:
         if len(foods[food]) == 1:
             for other_food in foods:
                 if other_food != food and foods[food][0] in foods[other_food]:
                     foods[other_food].remove(foods[food][0])
 
+#Go through all options 9 times (there are 9 foods - can make dynamic for future use)
+#Eliminating options in each iteration
 for i in range(9):
     reduce_items(new_possible)
 
+#Output the answers alphabetically
 print("Done reducing")
 for key in sorted(new_possible):
     print(f"{new_possible[key][0]},", end="")

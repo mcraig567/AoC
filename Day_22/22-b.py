@@ -24,6 +24,11 @@ def calculate_score(hand):
 
 
 def play_game(hand1, hand2, game):
+    """
+    Play a game of cards, can recurse into sub-games to determine hand winners
+    Outputs 2 variables. First is winner (1 or 2), second is each player's hand
+    """
+
     turn = 1
     game_hands = {} #key = hand1, value = [hand2]
     # print(f"== Game {game} ==")

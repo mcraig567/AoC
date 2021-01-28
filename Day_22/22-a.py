@@ -17,16 +17,18 @@ f.close()
 print(hands)
 
 def calculate_score(hand):
+    """Determine the score of the player's hand"""
     score = 0
     for i in range(len(hand)):
         score += hand[i] * (len(hand) - i)
-        print(f"{hand[i]} * {len(hand) - i}")
+        #print(f"{hand[i]} * {len(hand) - i}")
 
     return score
 
 
 
 turn = 1
+#Continue to play turns until one hand is empty
 while min(len(hands[0]), len(hands[1])) != 0:
     print(f"-- Round {turn} --")
     print(f"Player 1's deck: {hands[0]}")
@@ -51,6 +53,7 @@ while min(len(hands[0]), len(hands[1])) != 0:
 
 print(hands)
 
+#Calculate the score of the winning hand
 if hands[0]:
     score = calculate_score(hands[0])
 else:

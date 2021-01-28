@@ -91,6 +91,7 @@ left_col = []
 right_col = []
 
 for line in f:
+    #Iterate through each line of input, storing each tile and its edges
     line = line.strip()
 
     line = line.split()
@@ -131,6 +132,7 @@ for line in f:
             tile_list.append(original)
             tile_list.append(flipped)
 
+            #Create and add each possible arrangement to tile_list, then add to tiles
             rotated = original
             flip_rotated = flipped
 
@@ -139,8 +141,9 @@ for line in f:
                 flip_rotated = rotated_tile(flip_rotated)
                 tile_list.append(rotated)
                 tile_list.append(flip_rotated)
-
             tiles[tile_ID] = tile_list
+
+            #Prepare for next tile
             top_row = []
             bottom_row = []
             left_col = []
@@ -148,6 +151,7 @@ for line in f:
 
 f.close()
 
+"""Debugging Print Statements"""
 # print(tiles)
 # tiles[1].print_tile()
 # print()
@@ -281,8 +285,8 @@ for key in test:
 print()
 
 print("OPTION ONE")
-#keys = [1,3,7,9]
-keys = [1,12,133,144]
+#keys = [1,3,7,9]       #For a 3 x 3 grid
+keys = [1,12,133,144]   #For a 12 x 12 grid
 product = 1
 for key in keys:
     print(f"1 - {test[key].id} - Rotation: {test[key].position} - Flipped: {test[key].flipped}")

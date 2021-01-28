@@ -63,6 +63,8 @@ def check_31(message):
 
 
 def check_rules(message, rule, parent):
+    """Recursively dig through the rules to see if the message matches the initial rules"""
+    
     rule_type = rule[0]
     remainder = message
 

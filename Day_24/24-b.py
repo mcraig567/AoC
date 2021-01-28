@@ -32,6 +32,11 @@ for line in f:
 f.close()
 
 def add_neighbours(tile):
+    """
+    Returns a list of all the neighbour tiles for a tile
+    list includes the initial tile
+    """
+
     x = tile[0]
     y = tile[1]
     z = tile[2]
@@ -47,6 +52,8 @@ def add_neighbours(tile):
     return [loc, nw, ne, e, se, sw, w]
 
 def sum_neighbours(tile, tiles):
+    """Determines how many neighbours of a tile are black"""
+
     x = tile[0]
     y = tile[1]
     z = tile[2]
@@ -65,7 +72,7 @@ def sum_neighbours(tile, tiles):
 
     return total
 
-#Set the initial layout
+#Set the initial layout (Part a)
 for_total = 0
 for line in instructions:
     x = 0
@@ -115,7 +122,8 @@ total = 0
 
 #Get list of all black tiles, and tiles neighbouring them
 def create_list(black_tiles):
-    seen_tiles = set() #empty set
+    """Create a list of all tiles neighbouring all black tiles"""
+    seen_tiles = set() #empty set, don't want a tile in the list twice
     for tile in black_tiles:
         for neighbour in add_neighbours(tile):
             seen_tiles.add(neighbour)
@@ -123,6 +131,11 @@ def create_list(black_tiles):
 
 
 def end_day(black_tiles, tiles):
+    """
+    Determine what tiles need to be flipped overnight
+    
+    Returns a new list of all the black tiles, and the full tile dictionary
+    """
     to_black = []
     to_white = []
 

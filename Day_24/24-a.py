@@ -11,6 +11,9 @@ for line in f:
     new_line = []
     north = False
     south = False
+
+    #If char is n or s, want to add that on the next iteration
+    #Otherwise, just add the single character to instructions
     for char in line[:-1]:
         if char == "n":
             north = True       
@@ -28,7 +31,8 @@ for line in f:
 
 f.close()
 
-for_total = 0
+for_total = 0 #Number of flipped tiles calculated while iterating through instructions
+#Iterate through instructions, and flip tile at end
 for line in instructions:
     x = 0
     y = 0
@@ -67,9 +71,10 @@ for line in instructions:
         for_total -= 1
     tiles[tile] = current
 
-total = 0
+total = 0   #Number of flipped tiles iterating through tiles at end
 for key in tiles:
     total += tiles[key]
 
+#for_total should equal total
 print(f"Total: {total}")
 print(f"For_Total: {for_total}") 

@@ -155,6 +155,8 @@ left_col = []
 right_col = []
 
 for line in f:
+    #Iterate through each line of input, storing each tile, its edges
+    #and each character in the tile
     line = line.strip()
 
     line = line.split()
@@ -194,13 +196,13 @@ for line in f:
                 bottom_row.append(char)
 
             #Trim edges off
-            #top_row = top_row[1:-1]
-            #bottom_row = bottom_row[1:-1]
             left_col = left_col[1:-1]
             right_col = right_col[1:-1]
             lines = lines[1:-1]
 
             tiles[tile_ID] = Tile(tile_ID, top_row, bottom_row, left_col, right_col, lines)
+
+            #Prepare for next tile
             top_row = []
             bottom_row = []
             left_col = []
@@ -222,6 +224,7 @@ for line in f:
 f.close()
 
 def correct_tile(tile, rotation, flip):
+    """Adjust tile to the orientation in part a as described in existing"""
     if flip != tile.flipped:
         tile.flip_horizontal()
 
@@ -379,6 +382,15 @@ def get_next_tile(tiles, possible_tiles, position, existing):
     return x
 
 def test_tile(tile, lines = True, edges = False, full = False):
+    """
+    Debugging function to help visualize any tiles
+    
+    lines = True is default, showing all characters
+    edges = False is default, printing an outline of the tile
+    full = False is dfault, printing all lines and edges
+
+    """
+
     print(f"Testing Tile {tile.id} - Position {tile.position} - Flipped {tile.flipped}")
     for line in tile.lines:
         print(line)

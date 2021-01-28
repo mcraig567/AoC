@@ -22,7 +22,7 @@ for line in f:
     for allergen in allergens:
         options = allergen_option_lists.get(allergen, [])
         
-        #Create list of lists
+        #Create list of allergen lists
         options.append(ingredients)
         allergen_option_lists[allergen] = options
 
@@ -36,7 +36,7 @@ for line in f:
 
 f.close()
 
-
+"""Debugging print statements"""
 # for key in ingredient_times:
 #     print(f"{key} - {ingredient_times[key]}")
 
@@ -47,7 +47,10 @@ f.close()
 # for key in allergen_option_all:
 #     print(f"{key} - {allergen_option_all[key]}")
 #     print()
+"""End debugging print statements"""
 
+#For an ingredient to be an allergen, it must be in each list of ingredients for foods
+#Containing that allergen
 for key in ingredient_times:
     for foods in allergen_option_lists:
         for listed in allergen_option_lists[foods]:

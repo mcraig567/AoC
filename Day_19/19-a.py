@@ -31,11 +31,13 @@ for line in f:
     else:
         messages.append(line)
     
-messages.pop(0) #First entry is the blank line
+messages.pop(0) #First entry is the blank line, remove it
 
 f.close()
 
 def check_rules(message, rule):
+    """Recursively dig through the rules to see if the message matches the initial rules"""
+
     rule_type = rule[0]
 
     if rule_type == "LETTER":

@@ -80,6 +80,7 @@ def check_validity(nearby_tickets, limits):
     return invalid_numbers, invalid_tickets
 
 def find_valid_spots(ticket, limits):
+    """Determine what spots each criteria can go on the ticket"""
     spots = {} #[possible, not possible]
     for i in range(len(ticket)):
         value = ticket[i]

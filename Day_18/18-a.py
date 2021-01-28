@@ -5,15 +5,14 @@ equations = []
 for line in f:
     equation = line[:-1] #If closed bracket is at end, would break
     equations.append(equation)
-    # for char in line:
-    #     if char == " ":
-    #         pass
-    #     elif char == "+" or char == "*":
+
 f.close()
 
 #print(equations)
 
 def bracket_check(bracket_line):
+    """Go through each character in the line. Return a list of each bracket pair start/end index"""
+
     open_brackets = []
     bracket_pairs = []
     index = 0
@@ -21,7 +20,7 @@ def bracket_check(bracket_line):
         if char == "(":
             open_brackets.append(index)
         elif char == ")":
-            x = open_brackets.pop()
+            x = open_brackets.pop() #Open bracket for this closed bracket will be the most recent entry in open_brackets
             bracket_pairs.append((x, index))
         index += 1
 
@@ -29,6 +28,8 @@ def bracket_check(bracket_line):
     return bracket_pairs
 
 def sum_line(in_line, start = 0, end = len(line)):
+    """Go through the line from left to right completing each operation"""
+    
     in_line = in_line[start:end]
     in_line_split = in_line.split()
     number = int(in_line_split[0])
@@ -61,7 +62,7 @@ for eq in equations:
             x_len = len(x)
 
             #Pad x with spaces to keep previous indexing correct
-            #Will only work if number of digits smaller than space taken up by brackets
+            #Will only work if number of digits smaller than space taken up by brackets (may never happen? Would need to prove)
             if difference > x_len:
                 for i in range(x_len, difference + 1):
                     x = x + " "

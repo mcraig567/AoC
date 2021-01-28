@@ -3,7 +3,7 @@ from copy import deepcopy
 f = open("C:\\Users\craig\OneDrive\Documents\AoC\Day_23\input.txt", "r")
 cups = {}
 index = {}
-neighbours = {}
+neighbours = {} #neighbours[i] is the number to the right of i
 i = 0
 for line in f:
     for char in line:
@@ -29,9 +29,12 @@ LOWEST = min(neighbours)
 HIGHEST = max(neighbours)
 
 def play_turn(neighbours, start):
-    """Start is 0 indexed"""
+    """
+    Start is the value of the first cup chosen
 
-    #index_copy = deepcopy(index)
+    Swaps pointers in neighbours to avoid iterating through
+    large numbers of entries for each turn
+    """
 
     # for key in sorted(index):
     #     print(f"{index[key]}, ", end = "")
@@ -48,7 +51,7 @@ def play_turn(neighbours, start):
     
     moving = [first_moved, second_moved, third_moved]
 
-    while destination in moving:
+    while destination in moving: #Can't have a destination in the cups being moved
         destination -= 1
         if destination < LOWEST:
             destination = HIGHEST
@@ -80,14 +83,6 @@ for i in range(10000000):
     # if i % 1000 == 0:
     #     print(f"-- Move {i + 1} --")
     neighbours, start = play_turn(neighbours, start)
-
-start = neighbours[1]
-# print(f"{start} ", end = "")
-# for i in range(len(neighbours) - 1):
-#     print(f"{neighbours[start]} ", end = "")
-#     start = neighbours[start]
-# print()
-# print()
 
 #Find index for 1
 first = neighbours[1]

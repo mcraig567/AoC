@@ -14,6 +14,8 @@ f.close()
 #print(equations)
 
 def bracket_check(bracket_line):
+    """Go through each character in the line. Return a list of each bracket pair start/end index"""
+
     open_brackets = []
     bracket_pairs = []
     index = 0
@@ -29,11 +31,13 @@ def bracket_check(bracket_line):
     return bracket_pairs
 
 def sum_line(in_line, start = 0, end = len(line)):
+    """Go through the line completing all addition operations before multiplication"""
+
     in_line = in_line[start:end]
     in_line_split = in_line.split()
     line_copy = []
 
-    #Run through line once for multiplication
+    #Run through line once for addition
     i = 0
     while i < len(in_line_split):
         if in_line_split[i] == "+":
@@ -51,7 +55,7 @@ def sum_line(in_line, start = 0, end = len(line)):
 
         i += 1
     
-    #Run through line_copy for addition
+    #Run through line_copy for multiplication
     if len(line_copy) == 1:
         return int(line_copy[0])
 

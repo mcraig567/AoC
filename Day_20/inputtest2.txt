@@ -1,0 +1,15 @@
+Tile 1:
+A.
+XC
+
+Tile 3:
+BX
+.D
+
+Tile 4:
+.A
+BX
+
+Tile 2:
+XC
+D.

@@ -1,0 +1,9 @@
+1 - 1 - Rotation: 0 - Flipped: False  
+2 - 2 - Rotation: 0 - Flipped: False  
+3 - 3 - Rotation: 0 - Flipped: False 
+4 - 4 - Rotation: 0 - Flipped: False 
+5 - 5 - Rotation: 0 - Flipped: False 
+6 - 6 - Rotation: 0 - Flipped: False 
+7 - 7 - Rotation: 0 - Flipped: False 
+8 - 8 - Rotation: 0 - Flipped: False 
+9 - 9 - Rotation: 0 - Flipped: False 

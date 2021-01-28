@@ -1,0 +1,35 @@
+Tile 2:
+A.
+XC
+
+Tile 4:
+BX
+.D
+
+Tile 1:
+.A
+BX
+
+Tile 5:
+XC
+D.
+
+Tile 3:
+.H
+CF
+
+Tile 6:
+CF
+.K
+
+Tile 7:
+.D
+DF
+
+Tile 8:
+D.
+FG
+
+Tile 9:
+.K
+GA

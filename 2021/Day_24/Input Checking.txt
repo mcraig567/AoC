@@ -1,0 +1,252 @@
+inp w																	w1
+mul x 0		x = 0, y = 0, z = 0
+add x z		x = 0, y = 0, z = 0
+mod x 26	x = 0, y = 0, z = 0
+div z 1		x = 0, y = 0, z = 0
+add x 12	x = 12, y = 0, z = 0
+eql x w		x = 0, y = 0, z = 0 										w will never = 12
+eql x 0		x = 1, y = 0, z = 0
+mul y 0		x = 1, y = 0, z = 0
+add y 25	x = 1, y = 25, z = 0
+mul y x		x = 1, y = 25, z = 0
+add y 1		x = 1, y = 26, z = 0
+mul z y		x = 1, y = 26, z = 0
+mul y 0		x = 1, y = 0, z = 0
+add y w		x = 1, y = w1, z = 0 										w used - adds w + 9 to z
+add y 9		x = 1, y = w1 + 9, z = 0
+mul y x		x = 1, y = w1 + 9, z = 0
+add z y		x = 1, y = w1 + 9, z = w1 + 9
+inp w																	w2
+mul x 0		x = 0, y = w1 + 9, z = w1 + 9
+add x z		x = w1 + 9, y = w1 + 9, z = w1 + 9
+mod x 26	x = w1 + 9 % 26, y = w1 + 9, z = w1 + 9
+div z 1		x = w1 + 9 % 26, y = w1 + 9, z = w1 + 9
+add x 12	x = ((w1 + 9) % 26) + 12, y = w1 + 9, z = w1 + 9
+eql x w		x = 0, y = w1 + 9, z = w1 + 9										x will never be < 9
+eql x 0		x = 1, y = w1 + 9, z = w1 + 9
+mul y 0		x = 1, y = 0, z = w1 + 9										reset y
+add y 25	x = 1, y = 25, z = w1 + 9
+mul y x		x = 1, y = 25, z = w1 + 9
+add y 1		x = 1, y = 26, z = w1 + 9
+mul z y		x = 1, y = 26, z = 26*(w1 + 9)
+mul y 0		x = 1, y = 0, z = 26*(w1 + 9)										reset y
+add y w		x = 1, y = w2, z = 26*(w1 + 9)
+add y 4		x = 1, y = w2 + 4, z = 26*(w1 + 9)
+mul y x		x = 1, y = w2 + 4, z = 26*(w1 + 9)
+add z y		x = 1, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+inp w																	w3
+mul x 0		x = 0, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+add x z		x = 26*(w1 + 9) + w2 + 4, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+mod x 26	x = (26*(w1 + 9) + w2 + 4) % 26, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+div z 1		x = (26*(w1 + 9) + w2 + 4) % 26, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+add x 12	x = ((26*(w1 + 9) + w2 + 4) % 26) + 12, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+eql x w		x = 0, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+eql x 0		x = 1, y = w2 + 4, z = 26*(w1 + 9) + w2 + 4
+mul y 0		x = 1, y = 0, z = 26*(w1 + 9) + w2 + 4
+add y 25	x = 1, y = 25, z = 26*(w1 + 9) + w2 + 4
+mul y x		x = 1, y = 25, z = 26*(w1 + 9) + w2 + 4
+add y 1		x = 1, y = 26, z = 26*(w1 + 9) + w2 + 4
+mul z y		x = 1, y = 26, z = 26*(26*(w1 + 9) + w2 + 4)
+mul y 0		x = 1, y = 0, z = 26*(26*(w1 + 9) + w2 + 4)
+add y w		x = 1, y = w3, z = 26*(26*(w1 + 9) + w2 + 4)
+add y 2		x = 1, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4)
+mul y x		x = 1, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4)
+add z y		x = 1, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4) + w3 + 2
+inp w																	w4
+mul x 0		x = 0, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4) + w3 + 2
+add x z		x = 26*(26*(w1 + 9) + w2 + 4) + w3 + 2, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4) + w3 + 2
+mod x 26	x = (26*(26*(w1 + 9) + w2 + 4) + w3 + 2) % 26, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4) + w3 + 2
+div z 26	x = (26*(26*(w1 + 9) + w2 + 4) + w3 + 2) % 26, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4)
+add x -9	x = ((26*(26*(w1 + 9) + w2 + 4) + w3 + 2) % 26) - 9, y = w3 + 2, z = 26*(26*(w1 + 9) + w2 + 4)
+eql x w		if w4 == ((26*(26*(w1 + 9) + w2 + 4) + w3 + 2) % 26) - 9, x = 0, otherwise x = 1
+eql x 0
+mul y 0		x = 0, y = 0, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+add y 25	x = 0, y = 25, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+mul y x		x = 0, y = 0, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+add y 1		x = 0, y = 1, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+mul z y		x = 0, y = 1, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+mul y 0		x = 0, y = 0, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+add y w		x = 0, y = w4, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+add y 5		x = 0, y = w4 + 5, z = (26*(w1 + 9) + w2 + 4) + (w3 + 2)/26
+mul y x		x = 0, y = 0, z = 26*(26*(w1 + 9) + w2 + 4)
+add z y		x = 0, y - 0, z = 26*(26*(w1 + 9) + w2 + 4)
+inp w																	w5
+mul x 0		x = 0, y = 0, z = 26*(26*(w1 + 9) + w2 + 4)
+add x z		x = 26*(w1 + 9) + w2 + 4, y = 0, z = 26*(w1 + 9) + w2 + 4
+mod x 26	x = w2 + 4, y = 0, z = 26*(w1 + 9) + w2 + 4
+div z 26	x = w2 + 4, y = 0, z = w1 + 9
+add x -9	x = w2 + 4 - 9, y = 0, z = w1 + 9
+eql x w		if w5 = w2 - 5, x = 1
+eql x 0		x = 0
+mul y 0		x = 0, y = 0, z = w1 + 9
+add y 25	x = 0, y = 25, z = w1 + 9
+mul y x		x = 0, y = 0, z = w1 + 9
+add y 1		x = 0, y = 1, z = w1 + 9
+mul z y		x = 0, y - 1, z - w1 + 9
+mul y 0		x = 0, y = 0, z = w1 + 9
+add y w		x = 0, y = w5, z = w1 + 9
+add y 1		x = 0, y = w5 + 1, z = w1 + 9
+mul y x		x = 0, y = 0, z = w1 + 9
+add z y		x = 0, y = 0, z = w1 + 9
+inp w																	w6
+mul x 0		x = 0, y = 0, z = w1 + 9
+add x z		x = w1 + 9, y = 0, z = w1 + 9
+mod x 26	x = w1 + 9, y = 0, z = w1 + 9
+div z 1		x = w1 + 9, y = 0, z = w1 + 9
+add x 14	x = w1 + 24, y = 0, z = w1 + 9
+eql x w		x = 0
+eql x 0		x = 1, y = 0, z = w1 + 9
+mul y 0		x = 1, y = 0, z = w1 + 9
+add y 25	x = 1, y = 25, z = w1 + 9
+mul y x		x = 1, y = 25, z = w1 + 9
+add y 1		x = 1, y = 26, z = w1 + 9
+mul z y		x = 1, y = 26, z = 26*(w1 + 9)
+mul y 0		x = 1, y = 0, z = 26*(w1 + 9)
+add y w		x = 1, y = w6, z = 26*(w1 + 9)
+add y 6		x = 1, y = w6 + 6, z = 26*(w1 + 9)
+mul y x		x = 1, y = w6 + 6, z = 26*(w1 + 9)
+add z y		x = 1, y = w6 + 6, z = 26*(w1 + 9) + w6 + 6
+inp w																	w7
+mul x 0		x = 0, y = w6 + 6, z = 26*(w1 + 9) + w6 + 6
+add x z		x = 26*(w1 + 9) + w6 + 6, y = w6 + 6, z = 26*(w1 + 9) + w6 + 6
+mod x 26	x = w6 + 6, y = w6 + 6, z = 26*(w1 + 9) + w6 + 6
+div z 1
+add x 14	x = w6 + 20, y = w6 + 6, z = 26*(w1 + 9) + w6 + 6
+eql x w		x = 0
+eql x 0		x = 1, y = w6 + 6, z = 26*(w1 + 9) + w6 + 6
+mul y 0		x = 1, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 25	x = 1, y = 25, z = 26*(w1 + 9) + w6 + 6
+mul y x
+add y 1		x = 1, y = 26, z = 26*(w1 + 9) + w6 + 6
+mul z y		x = 1, y = 26, z = 26*(26*(w1 + 9) + w6 + 6)
+mul y 0		x = 1, y = 0, z = 26*(26*(w1 + 9) + w6 + 6)
+add y w		x = 1, y = w7, z = 26*(26*(w1 + 9) + w6 + 6)
+add y 11	x = 1, y = w7 + 11, z = 26*(26*(w1 + 9) + w6 + 6)
+mul y x
+add z y		x = 1, y = w7 + 11, z = 26*(26*(w1 + 9) + w6 + 6) + w7 + 11
+inp w																	w8
+mul x 0		x = 0, y = w7 + 11, z = 26*(26*(w1 + 9) + w6 + 6) + w7 + 11
+add x z		x = 26*(26*(w1 + 9) + w6 + 6) + w7 + 11, y = w7 + 11, z = 26*(26*(w1 + 9) + w6 + 6) + w7 + 11
+mod x 26	x = w7 + 11, y = w7 + 11, z = 26*(26*(w1 + 9) + w6 + 6) + w7 + 11
+div z 26	x = w7 + 11, y = w7 + 11, z = 26*(w1 + 9) + w6 + 6
+add x -10	x = w7 + 1, y = w7 + 11, z = 26*(w1 + 9) + w6 + 6
+eql x w		if w8 = w7 + 1, x = 1, y = w7 + 11, z = 26*(w1 + 9) + w6 + 6
+eql x 0		x = 0
+mul y 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 25	x = 0, y = 25, z = 26*(w1 + 9) + w6 + 6
+mul y x		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 1		x = 0, y = 1, z = 26*(w1 + 9) + w6 + 6
+mul z y	
+mul y 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y w		x = 0, y = w8, z = 26*(w1 + 9) + w6 + 6
+add y 15	x = 0, y = w8 + 15, z = 26*(w1 + 9) + w6 + 6
+mul y x		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add z y		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+inp w																	w9
+mul x 0		x = 0, y = 0, z - 26*(w1 + 9) + w6 + 6
+add x z		x = 26*(w1 + 9) + w6 + 6, y = 0, z = 26*(w1 + 9) + w6 + 6
+mod x 26	x = w6 + 6, y = 0, z = 26*(w1 + 9) + w6 + 6
+div z 1		x = w6 + 6, y = 0, z = 26*(w1 + 9) + w6 + 6
+add x 15	x = w6 + 21, y = 0, z = 26*(w1 + 9) + w6 + 6
+eql x w		x = 0
+eql x 0		x = 1, y = 0, z = 26*(w1 + 9) + w6 + 6
+mul y 0		x = 1, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 25	x = 1, y = 25, z = 26*(w1 + 9) + w6 + 6
+mul y x		
+add y 1		x = 1, y = 26, z = 26*(w1 + 9) + w6 + 6
+mul z y		x = 1, y = 26, z = 26*(26*(w1 + 9) + w6 + 6)
+mul y 0		x = 1, y = 0, z = 26*(26*(w1 + 9) + w6 + 6)
+add y w		x = 1, y = w9, z = 26*(26*(w1 + 9) + w6 + 6)
+add y 7		x = 1, y = w9 + 7, z = 26*(26*(w1 + 9) + w6 + 6)
+mul y x		
+add z y		x = 1, y = w9 + 7, z = 26*(26*(w1 + 9) + w6 + 6) + w9 + 7
+inp w																	w10
+mul x 0		x = 0, y = w9 + 7, z = 26*(26*(w1 + 9) + w6 + 6) + w9 + 7
+add x z		x = 26*(26*(w1 + 9) + w6 + 6) + w9 + 7, y = w9 + 7, z = 26*(26*(w1 + 9) + w6 + 6) + w9 + 7
+mod x 26	x = w9 + 7, y = w9 + 7, z = 26*(26*(w1 + 9) + w6 + 6) + w9 + 7 
+div z 26	x = w9 + 7, y = w9 + 7, z = 26*(w1 + 9) + w6 + 6
+add x -2	x = w9 + 5, y = w9 + 7, z = 26*(w1 + 9) + w6 + 6
+eql x w		if w10 = w9 + 5, x = 1
+eql x 0		x = 0
+mul y 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 25	x = 0, y = 25, z = 26*(w1 + 9) + w6 + 6
+mul y x		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 1		x = 0, y = 1, z = 26*(w1 + 9) + w6 + 6
+mul z y
+mul y 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y w		x = 0, y = w10, z = 26*(w1 + 9) + w6 + 6
+add y 12	x = 0, y = w10 + 12, z = 26*(w1 + 9) + w6 + 6
+mul y x		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add z y		
+inp w																	w11
+mul x 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add x z		x = 26*(w1 + 9) + w6 + 6, y = 0, z = 26*(w1 + 9) + w6 + 6
+mod x 26	x = w6 + 6, y = 0, z = 26*(w1 + 9) + w6 + 6
+div z 1		
+add x 11	x = w6 + 17, y = 0 z = 26*(w1 + 9) + w6 + 6
+eql x w		x = 0
+eql x 0		x = 1, y = 0, z = 26*(w1 + 9) + w6 + 6
+mul y 0		x = 1, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 25	x = 1, y = 25, z = 26*(w1 + 9) + w6 + 6
+mul y x		
+add y 1		x = 1, y = 26, z = 26*(w1 + 9) + w6 + 6
+mul z y		x = 1, y = 26, z = 26*(26*(w1 + 9) + w6 + 6)
+mul y 0		x = 1, y = 0, z = 26*(26*(w1 + 9) + w6 + 6)
+add y w		x = 1, y = w11, z = 26*(26*(w1 + 9) + w6 + 6)
+add y 15	x = 1, y = w11 + 15, z = 26*(26*(w1 + 9) + w6 + 6)
+mul y x		
+add z y		x = 1, y = w11 + 15, z = 26*(26*(w1 + 9) + w6 + 6) + w11 + 15
+inp w																	w12
+mul x 0		x = 0, y = w11 + 15, z = 26*(26*(w1 + 9) + w6 + 6) + w11 + 15
+add x z		x = 26*(26*(w1 + 9) + w6 + 6) + w11 + 15, y = w11 + 15, z = 26*(26*(w1 + 9) + w6 + 6) + w11 + 15
+mod x 26	x = w11 + 15, y = w11 + 15, z = 26*(26*(w1 + 9) + w6 + 6) + w11 + 15
+div z 26	x = w11 + 15, y = w11 + 15, z = 26*(w1 + 9) + w6 + 6
+add x -15	x = w11, y = w11 + 15, z = 26*(w1 + 9) + w6 + 6
+eql x w		if w12 == w11, x = 1
+eql x 0		x = 0
+mul y 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 25	x = 0, y = 25, z = 26*(w1 + 9) + w6 + 6
+mul y x		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y 1		x = 0, y = 1, z = 26*(w1 + 9) + w6 + 6
+mul z y		x = 0, y = 1, z = 26*(w1 + 9) + w6 + 6
+mul y 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add y w		x = 0, y = w12, z = 26*(w1 + 9) + w6 + 6
+add y 9		x = 0, y = w12 + 9, z = 26*(w1 + 9) + w6 + 6
+mul y x		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add z y		
+inp w																	w13
+mul x 0		x = 0, y = 0, z = 26*(w1 + 9) + w6 + 6
+add x z		x = 26*(w1 + 9) + w6 + 6, y = 0, z = 26*(w1 + 9) + w6 + 6
+mod x 26	x = w6 + 6, y = 0, z = 26*(w1 + 9) + w6 + 6 
+div z 26	x = w6 + 6, y = 0, z = w1 + 9
+add x -9	x = w6 - 3, y = 0, z = w1 + 9
+eql x w		if w13 = w6 - 3, x = 1
+eql x 0		x = 0
+mul y 0		x = 0, y = 0, z = w1 + 9
+add y 25	x = 0, y = 25, z = w1 + 9
+mul y x		x = 0, y = 0, z = w1 + 9
+add y 1		x = 0, y = 1, z = w1 + 9
+mul z y	
+mul y 0		x = 0, y = 0, z = w1 + 9	
+add y w		x = 0, y = w13, z = w1 + 9
+add y 12	x = 0, y = 13 + 12, z = w1 + 9
+mul y x		x = 0, y = 0, z = w1 + 9
+add z y		
+inp w																	w14
+mul x 0 	x = 0, y = 0, z = w1 + 9
+add x z 	x = w1 + 9, y = 0, z = w1 + 9
+mod x 26	x = w1 + 9, y = 0, z = w1 + 9
+div z 26	x = w1 + 9, y = 0, z = 0
+add x -3	x = w1 + 6, y = 0, z = 0
+eql x w		if w14 = w1 + 6, x = 1
+eql x 0		x = 0
+mul y 0		x = 0, y = 0, z = 0
+add y 25	x = 0, y = 25, z = 0
+mul y x 	x = 0, y = 0, z = 0
+add y 1		x = 0, y = 1, z = 0
+mul z y		x = 0, y = 1, z = 0
+mul y 0 	x = 0, y = 0, z = 0
+add y w		x = 0, y = w14, z = 0
+add y 12	x = 0, y = w14 + 12, z = 0
+mul y x		x = 0, y = 0, z = 0
+add z y		x = 0, y = 0, z = 0

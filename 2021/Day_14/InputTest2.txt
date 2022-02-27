@@ -1,0 +1,11 @@
+ABAB
+
+AB -> X
+AX -> A
+AA -> B
+BA -> X
+BX -> B
+BB -> A
+XA -> A
+XB -> B
+XX -> X
